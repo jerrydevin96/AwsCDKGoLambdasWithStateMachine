@@ -35,11 +35,15 @@ func (sd StateMachineStackData) CreateStateMachineWithAssociatedRole(scope const
 		AssumedBy:      awsiam.NewServicePrincipal(jsii.String("states.amazonaws.com"), nil),
 	})
 
-	awsstepfunctions.NewStateMachine(stack, jsii.String("statemachine-cdk"), &awsstepfunctions.StateMachineProps{
+	statemachine := awsstepfunctions.NewStateMachine(stack, jsii.String("statemachine-cdk"), &awsstepfunctions.StateMachineProps{
 		StateMachineName: jsii.String("statemachine-lambdas-cdk"),
 		Role:             role,
 		StateMachineType: awsstepfunctions.StateMachineType_STANDARD,
 		Definition:       sd.Defnition,
+	})
+
+	stack.ExportValue(statemachine.StateMachineArn(), &awscdk.ExportValueOptions{
+		Name: jsii.String("state-machine-arn"),
 	})
 
 }
