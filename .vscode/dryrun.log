@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Volumes/work/poc/aws-cdk-test'
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w" -gcflags "all=-trimpath=/Volumes/work/poc/aws-cdk-test" -o ./build/lambdaone/bootstrap ./lambdaone/main.go
+make: Leaving directory `/Volumes/work/poc/aws-cdk-test'
+ 
