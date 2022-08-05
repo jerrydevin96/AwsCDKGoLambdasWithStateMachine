@@ -3,3 +3,5 @@ deployment/cdk.out*
 build
 build*
 deployment/deployment
+.vscode
+.vscode*
